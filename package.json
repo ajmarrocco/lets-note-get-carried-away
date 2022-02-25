@@ -1,0 +1,26 @@
+{
+  "name": "lets-note-get-carried-away",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajmarrocco/lets-note-get-carried-away.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajmarrocco/lets-note-get-carried-away/issues"
+  },
+  "homepage": "https://github.com/ajmarrocco/lets-note-get-carried-away#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
