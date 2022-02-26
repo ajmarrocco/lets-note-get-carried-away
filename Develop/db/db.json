@@ -1,29 +1,6 @@
 {
   "notes": [
     {
-      "title": "Test Title",
-      "text": "Test text"
-    },
-    {
-      "title": "Meet Accountant",
-      "text": "At 7PM"
-    },
-    {
-      "title": "Feed Dogs",
-      "text": "Feed Cooper and Fifi"
-    },
-    {
-      "title": "Go to Church",
-      "text": "With Nana"
-    },
-    {
-      "title": "Take Pill",
-      "text": "With Water"
-    },
-    "{\"rest\":{\"title\":\"Eat Breakfast\",\"text\":\"Have Eggs\"},\"id\":\"2402\"}",
-    "{\"title\":\"Eat Breakfast\",\"text\":\"Have eggs\",\"id\":\"ec89\"}",
-    "{\"title\":\"Speak to Sales\",\"text\":\"Meet with Rick\",\"id\":\"fe35\"}",
-    {
       "title": "Speak to Sales",
       "text": "Go to meeting",
       "id": "9406"
@@ -32,6 +9,21 @@
       "title": "Draft this job",
       "text": "Draft with AutoCad",
       "id": "9f33"
+    },
+    {
+      "title": "Email Architect",
+      "text": "Send email for new project",
+      "id": "9763"
+    },
+    {
+      "title": "Approve hours",
+      "text": "Approve your hours for the payroll",
+      "id": "2e4b"
+    },
+    {
+      "title": "Reschedule meeting",
+      "text": "Reschedule meeting with client",
+      "id": "fd1d"
     }
   ]
 }
