@@ -8,12 +8,19 @@ const app = express();
 const { notes } = require('./Develop/db/db.json');
 const fs = require('fs');
 const path = require('path');
+// Helper method for generating unique ids
+const uuid = require('./Develop/helpers/uuid.js');
 
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
 app.use(express.static('./Develop/public'));
+
+function findById(id, notes) {
+    const result = notes.filter(note => note.id === id)[0];
+    return result;
+}
 
 function createNewNote(body, notes) {
     const newNote = body;
@@ -35,11 +42,31 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
+    // Destructuring assignment for the items in req.body
+    const { title, text, id } = req.body;
+    // Variable for the object we will save
+    const newNote = {
+        title,
+        text,
+        id: uuid()
+    };
+
+    // const reviewNote = JSON.stringify(newNote);
+    
     // req.body is where our incoming content will be
-    const note = createNewNote(req.body, notes);
+    const note = createNewNote(newNote, notes);
     res.json(note);
     // console.log(req.body);
     // res.json(req.body);
+});
+
+app.get('/api/notes/:id', (req, res) => {
+    const result = findById(req.params.id, notes);
+        if (result) {
+            res.json(result);
+        } else {
+            res.send(404);
+        }
 });
 
 // returns the index file
