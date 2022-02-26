@@ -7,10 +7,20 @@ const app = express();
 // initalizes note constant
 const { notes } = require('./Develop/db/db');
 const path = require('path');
+// const router = require('express').Router();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
+
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
+    // res.send("hello")
+});
+
+app.get('/api/notes', (req, res) => {
+    res.json(notes)
+});
 
 // returns the index file
 app.get('*', (req, res) => {
