@@ -17,30 +17,37 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('./Develop/public'));
 
+//method to get note by id number
 function findById(id, notes) {
     const result = notes.filter(note => note.id === id)[0];
     return result;
 }
 
+//method to create new note
 function createNewNote(body, notes) {
     const newNote = body;
+    //pushes note to new array
     notes.push(newNote);
+    //adds note to new file
     fs.writeFileSync(
         path.join(__dirname, './Develop/db/db.json'),
         JSON.stringify({ notes }, null, 2)
     );
+    //returns file
     return newNote;
 }
 
+// returns notes html
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
-    // res.send("hello")
 });
 
+// reads db.json and returns all saved notes
 app.get('/api/notes', (req, res) => {
     res.json(notes)
 });
 
+// creates new ID number from uuid and calls on createNewNote
 app.post('/api/notes', (req, res) => {
     // Destructuring assignment for the items in req.body
     const { title, text, id } = req.body;
@@ -50,16 +57,14 @@ app.post('/api/notes', (req, res) => {
         text,
         id: uuid()
     };
-
-    // const reviewNote = JSON.stringify(newNote);
     
-    // req.body is where our incoming content will be
+    // stores new note as constant
     const note = createNewNote(newNote, notes);
+    // puts note in JSON format
     res.json(note);
-    // console.log(req.body);
-    // res.json(req.body);
 });
 
+// calls on the find note by ID number method
 app.get('/api/notes/:id', (req, res) => {
     const result = findById(req.params.id, notes);
         if (result) {
