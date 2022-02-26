@@ -1,3 +1,4 @@
+// initialize variables
 const fs = require('fs');
 const path = require('path');
 
@@ -21,6 +22,7 @@ function createNewNote(body, notes) {
     return newNote;
 }
 
+// export methods
 module.exports = {
     findById,
     createNewNote
