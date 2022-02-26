@@ -4,7 +4,7 @@ const express = require('express');
 const PORT = process.env.PORT || 3001;
 // instantiate the server
 const app = express();
-
+// initialize api and HTML routes
 const apiRoutes = require('./Develop/routes/apiRoutes');
 const htmlRoutes = require('./Develop/routes/htmlRoutes');
 
