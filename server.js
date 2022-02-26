@@ -6,12 +6,24 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 // initalizes note constant
 const { notes } = require('./Develop/db/db');
+const fs = require('fs');
 const path = require('path');
-// const router = require('express').Router();
 
+// parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
+// parse incoming JSON data
 app.use(express.json());
 app.use(express.static('./Develop/public'));
+
+// function createNewNote(body, notesArray) {
+//     const newNote = body;
+//     notesArray.push(newNote);
+//     fs.writeFileSync(
+//         path.join(__dirname, './Develop/db/db'),
+//         JSON.stringify({ notesArray }, null, 2)
+//     );
+//     return newNote;
+// }
 
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './Develop/public/notes.html'));
@@ -21,6 +33,14 @@ app.get('/notes', (req, res) => {
 app.get('/api/notes', (req, res) => {
     res.json(notes)
 });
+
+// app.post('/api/notes', (req, res) => {
+//     // req.body is where our incoming content will be
+//     const note = createNewNote(req.body, notes);
+//     res.json(note);
+//     // console.log(req.body);
+//     // res.json(req.body);
+// });
 
 // returns the index file
 app.get('*', (req, res) => {
