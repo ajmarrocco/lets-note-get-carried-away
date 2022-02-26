@@ -5,7 +5,7 @@ A webpage that is able to write and save notes to organize my thoughts and keep 
 
 ## Table of Contents
 * [Link](#link)
-* [Technologies Used](#technologies)
+* [Technologies](#technologies)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
@@ -14,7 +14,7 @@ A webpage that is able to write and save notes to organize my thoughts and keep 
 ## Link
 Please see deployed link for application use: https://quiet-plateau-54499.herokuapp.com/
 
-## Technologies Used
+## Technologies
 * Express.js
 * APIs
 * Heroku
