@@ -6,13 +6,15 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 // initalizes note constant
 const { notes } = require('./Develop/db/db');
+const path = require('path');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
+// returns the index file
 app.get('*', (req, res) => {
-    res.json(notes);
+    res.sendFile(path.join(__dirname, './Develop/public/index.html'));
 });
 
 //makes server listen
