@@ -4,12 +4,12 @@ const { findById, createNewNote } = require('../../lib/notes');
 const { notes } = require('../../db/db.json');
 const uuid = require('../../helpers/uuid.js');
 
-// reads db.json and returns all saved notes
+// reads db.json and returns all saved notes ***(/api) already added from server.js page***
 router.get('/notes', (req, res) => {
     res.json(notes)
 });
 
-// creates new ID number from uuid and calls on createNewNote
+// creates new ID number from uuid and calls on createNewNote ***(/api) already added from server.js page***
 router.post('/notes', (req, res) => {
     // Destructuring assignment for the items in req.body
     const { title, text, id } = req.body;
@@ -26,7 +26,7 @@ router.post('/notes', (req, res) => {
     res.json(note);
 });
 
-// calls on the find note by ID number method
+// calls on the find note by ID number method ***(/api) already added from server.js page***
 router.get('/notes/:id', (req, res) => {
     const result = findById(req.params.id, notes);
         if (result) {
